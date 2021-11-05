@@ -1,0 +1,4 @@
+# LTV Rubocop config
+
+Layout/LineLength:
+  Max: 100

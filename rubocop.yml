@@ -1,4 +1,48 @@
 # LTV Rubocop config
+#
+# This is a living config; if a rule doesn't make sense, configure it or
+# disable it to align with our style guidelines.
+#
+# Documentation on specific cops can be found in the Rubocop docs:
+#
+#   https://docs.rubocop.org/rubocop/index.html
 
+inherit_mode:
+  merge:
+    - Exclude
+AllCops:
+  NewCops: disable
+  Exclude:
+    - 'bin/{rails,rake,resque,rspec,spring}'
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'config/unicorn.rb'
 Layout/LineLength:
   Max: 100
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+Style/BlockComments:
+  Exclude:
+    - 'db/migrations/*'
+Style/Documentation:
+  Exclude:
+    - 'db/migrations/*'
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'db/migrations/*'
+Style/StringLiterals:
+  Enabled: false
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: "()"
+    "%i": "()"
+    "%I": "()"
+    "%r": "()"
+    "%w": "()"
+    "%W": "()"
